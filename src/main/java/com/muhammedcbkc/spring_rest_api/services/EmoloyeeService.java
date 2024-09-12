@@ -23,4 +23,8 @@ public class EmoloyeeService {
     public List<Employee> getEmployeeWihtParams(String firstName, String lastName) {
         return employeeRepository.getEmployeeWithParams(firstName, lastName);
     }
+
+    public Employee addEmployee(Employee employee) {
+        return employeeRepository.addEmployee(employee);
+    }
 }

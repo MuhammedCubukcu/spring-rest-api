@@ -30,6 +30,11 @@ public class RestEmployeeController {
         return emoloyeeService.getEmployeeWihtParams(firstName, lastName);
     }
 
+    @PostMapping("/save-employee")
+    public Employee saveEmployee(@RequestBody Employee employee) {
+        return emoloyeeService.addEmployee(employee);
+    }
+
 
 
 }
