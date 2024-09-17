@@ -2,6 +2,7 @@ package com.muhammedcbkc.spring_rest_api.controller;
 
 import com.muhammedcbkc.spring_rest_api.entity.Employee;
 import com.muhammedcbkc.spring_rest_api.services.EmoloyeeService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,29 +13,33 @@ import java.util.List;
 public class RestEmployeeController {
 
     @Autowired
-    private EmoloyeeService emoloyeeService;
+    private EmoloyeeService employeeService;
 
     @GetMapping(path = "/list")
     public List<Employee> getAllEmployees() {
-        return emoloyeeService.getAllEmployees();
+        return employeeService.getAllEmployees();
     }
 
     @GetMapping("/list/{id}")
     public Employee getEmployeeById(@PathVariable(name = "id", required = true) String id) {
-        return emoloyeeService.getEmployeeById(id);
+        return employeeService.getEmployeeById(id);
     }
 
     @GetMapping("/with-params")
     public List<Employee> getEmployeeWithParams(@RequestParam(name = "firstName", required = false) String firstName,
                                                 @RequestParam(name = "lastName",  required = false)  String lastName){
-        return emoloyeeService.getEmployeeWihtParams(firstName, lastName);
+        return employeeService.getEmployeeWihtParams(firstName, lastName);
     }
 
     @PostMapping("/save-employee")
     public Employee saveEmployee(@RequestBody Employee employee) {
-        return emoloyeeService.addEmployee(employee);
+        return employeeService.addEmployee(employee);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public List<Employee> deleteEmployee(@PathVariable(name = "id", required = true) String id) {
+        return employeeService.deleteEmployeeById(id);
+    }
 
 
 }

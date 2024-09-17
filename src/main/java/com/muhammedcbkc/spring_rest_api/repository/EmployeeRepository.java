@@ -61,4 +61,13 @@ public class EmployeeRepository {
         return employee;
     }
 
+    public List<Employee> deleteEmployeeById(String id) {
+        for (Employee employee : employeeList) {
+            if (id.equals(employee.getEmpId())) {
+                employeeList.remove(employee);
+            }
+        }
+        return employeeList;
+    }
+
 }
