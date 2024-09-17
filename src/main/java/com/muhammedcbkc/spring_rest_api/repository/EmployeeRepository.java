@@ -69,5 +69,13 @@ public class EmployeeRepository {
         }
         return employeeList;
     }
-
+    public Employee updateEmployee(String id, Employee employee) {
+        for (Employee emp : employeeList) {
+            if (id.equals(emp.getEmpId())) {
+                employeeList.get(employeeList.indexOf(emp)).setFirstName(employee.getFirstName());
+                employeeList.get(employeeList.indexOf(emp)).setLastName(employee.getLastName());
+            }
+        }
+        return employee;
+    }
 }

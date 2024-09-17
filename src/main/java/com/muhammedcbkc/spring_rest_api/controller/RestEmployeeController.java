@@ -41,5 +41,10 @@ public class RestEmployeeController {
         return employeeService.deleteEmployeeById(id);
     }
 
+    @PutMapping("/update/{id}")
+    public Employee updateEmployee(@PathVariable(name = "id", required = true) String id, @RequestBody Employee employee) {
+        return employeeService.updateEmployee(id,employee);
+    }
+
 
 }

@@ -31,4 +31,8 @@ public class EmoloyeeService {
     public List<Employee> deleteEmployeeById(String id) {
         return employeeRepository.deleteEmployeeById(id);
     }
+
+    public Employee updateEmployee(String id,Employee employee) {
+        return employeeRepository.updateEmployee(id,employee);
+    }
 }
